@@ -20,13 +20,15 @@
 # --- PROJECT CONFIGURATION
 
 #APP - Which "sketch" to build
-APP=TridentPower
+APP=TridentCore
 
 #CHIP - Which part number to build for, e.g. "SAML21J18B"
-CHIP=SAML21J18B
+CHIP_FAMILY=SAMD21
+CHIP_PART=J18A
+CHIP=CHIP_FAMILY+CHIP_PART
 
 #VARIANT - Which setup to use for the specified chip
-VARIANT=power_manager
+VARIANT=TridentBeta_Rev3
 
 # ------------------------------
 
@@ -38,23 +40,7 @@ LDINCLUDES+=-I"src/cores/$(CHIP)" \
 			-I"src/variants/$(CHIP)/$(VARIANT)"
 
 # TODO: Remove this. Must be passed in as "EXTRA_INCLUDES" variable
-LDINCLUDES+=-I"src/cores/$(CHIP)/" \
-			-I"src/cores/$(CHIP)/config" \
-			-I"src/cores/$(CHIP)/hal/include" \
-			-I"src/cores/$(CHIP)/hal/utils/include" \
-			-I"src/cores/$(CHIP)/hpl/core" \
-			-I"src/cores/$(CHIP)/hpl/adc" \
-			-I"src/cores/$(CHIP)/hpl/dmac" \
-			-I"src/cores/$(CHIP)/hpl/gclk" \
-			-I"src/cores/$(CHIP)/hpl/mclk" \
-			-I"src/cores/$(CHIP)/hpl/osc32kctrl" \
-			-I"src/cores/$(CHIP)/hpl/oscctrl" \
-			-I"src/cores/$(CHIP)/hpl/pm" \
-			-I"src/cores/$(CHIP)/hpl/port" \
-			-I"src/cores/$(CHIP)/hpl/sercom" \
-			-I"src/cores/$(CHIP)/hpl/systick" \
-			-I"src/cores/$(CHIP)/hpl/tc" \
-			-I"src/cores/$(CHIP)/hri"
+LDINCLUDES+=-I"src/cores/$(CHIP)/"
 
 # LDLIBPATHS - Lib paths for libraries, i.e. '-L/usr/local/lib'
 LDLIBPATHS=
@@ -67,7 +53,7 @@ LDFLAGS=$(LDLIBPATHS) \
 			--specs=nano.specs \
 			-Wl,--gc-sections \
 			-mcpu=cortex-m0plus \
-			-T"linker_scripts/$(CHIP)/flash.ld"
+			-T"linker_scripts/$(CHIP_FAMILY)/$(CHIP)_FLASH.ld"
 
 # LDLIBS - Which libs to link to, i.e. '-lm' or 'somelib.a'
 LDLIBS=-Wl,--start-group -lm -Wl,--end-group
@@ -97,7 +83,7 @@ CXX=arm-none-eabi-g++
 
 # --- C++ compiler flags. We'll add on to these later based on build target.
 CXFLAGS=-x c -mthumb -ffunction-sections -mlong-calls -Wall -std=gnu99 -D__$(CHIP)__ -mcpu=cortex-m0plus -DDONT_USE_CMSIS_INIT
-CXXFLAGS=-x c++ -mthumb -ffunction-sections -mlong-calls -Wall -std=c++14 -D__$(CHIP)__ -mcpu=cortex-m0plus -DDONT_USE_CMSIS_INIT
+CXXFLAGS=-x c++ -mthumb -ffunction-sections -mlong-calls -Wall -std=c++11 -D__$(CHIP)__ -mcpu=cortex-m0plus -DDONT_USE_CMSIS_INIT
 
 # --------------------------------------------------------------------------------------------------
 
