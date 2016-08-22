@@ -25,7 +25,7 @@ APP=TridentCore
 #CHIP - Which part number to build for, e.g. "SAML21J18B"
 CHIP_FAMILY=SAMD21
 CHIP_PART=J18A
-CHIP=CHIP_FAMILY+CHIP_PART
+CHIP=$(CHIP_FAMILY)$(CHIP_PART)
 
 #VARIANT - Which setup to use for the specified chip
 VARIANT=TridentBeta_Rev3
