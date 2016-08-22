@@ -126,7 +126,7 @@ typedef enum _EPortType
 } EPortType;
 
 // External Interrupt Numbers
-typedef enum
+typedef enum _EExtInterrupts
 {
   EXTERNAL_INT_0 = 0,
   EXTERNAL_INT_1,
@@ -148,13 +148,13 @@ typedef enum
   EXTERNAL_NUM_INTERRUPTS,
   NOT_AN_INTERRUPT = -1,
   EXTERNAL_INT_NONE = NOT_AN_INTERRUPT,
-} EExt_Interrupts;
+} EExtInterrupts;
 
 //A		B					C		D			E		F	G	H
 //EIC	REF ADC AC PTC DAC 	SERCOM	SERCOM_ALT	TC/TCC	TCC	COM	AC/GCLK
 
 // Pinmux type definitions
-typedef enum EPinmuxSelector
+typedef enum _EPinmuxSelector
 {
   PINMUX_NOT_A_PIN=-1,     /* Not under control of a peripheral. */
   PINMUX_EXTINT=0,         /* The pin is controlled by the associated signal of peripheral A. */

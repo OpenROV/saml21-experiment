@@ -21,7 +21,7 @@ void __libc_init_array( void );
 void Dummy_Handler( void );
 
 // Cortex-M0+ core handlers
-DUMMY	void Reset_Handler		( void );
+		void Reset_Handler		( void );
 DUMMY 	void NMI_Handler		( void );
 DUMMY 	void HardFault_Handler	( void );
 DUMMY 	void SVC_Handler		( void );
@@ -118,7 +118,7 @@ const DeviceVectors exception_table =
 // Called on system resets
 void Reset_Handler( void )
 {
-	uint32_t *pSrc
+	uint32_t *pSrc;
 	uint32_t *pDest;
 
 	// Initialize the relocate segment
