@@ -43,23 +43,26 @@
 
 #include <util/util_atomic.h>
 
-namespace util
+namespace core
 {
-	namespace atomic
+	namespace util
 	{
-		// Disable interrupts, enter critical section
-		void EnterCriticalSection( atomic_t volatile *atomic )
+		namespace atomic
 		{
-			*atomic = __get_PRIMASK();
-			__disable_irq();
-			__DMB();
-		}
+			// Disable interrupts, enter critical section
+			void EnterCriticalSection( atomic_t volatile *atomic )
+			{
+				*atomic = __get_PRIMASK();
+				__disable_irq();
+				__DMB();
+			}
 
-		// Exit atomic section
-		void ExitCriticalSection( atomic_t volatile *atomic )
-		{
-			__DMB();
-			__set_PRIMASK(*atomic);
+			// Exit atomic section
+			void ExitCriticalSection( atomic_t volatile *atomic )
+			{
+				__DMB();
+				__set_PRIMASK(*atomic);
+			}
 		}
 	}
 }

@@ -1,10 +1,13 @@
 #pragma once
 
 // Includes
-#include <stdint.h>
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
+extern "C"
+{
+	#include <stdint.h>
+	#include <stdlib.h>
+	#include <string.h>
+	#include <math.h>
+}
 
 #include <sam.h>
 
