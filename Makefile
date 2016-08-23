@@ -82,8 +82,8 @@ CC=arm-none-eabi-gcc
 CXX=arm-none-eabi-g++
 
 # --- C++ compiler flags. We'll add on to these later based on build target.
-CXFLAGS=-x c -mthumb -ffunction-sections -mlong-calls -Wall -std=gnu99 -D__$(CHIP)__ -mcpu=cortex-m0plus -DDONT_USE_CMSIS_INIT
-CXXFLAGS=-x c++ -mthumb -ffunction-sections -mlong-calls -Wall -std=c++11 -D__$(CHIP)__ -mcpu=cortex-m0plus -DDONT_USE_CMSIS_INIT
+CXFLAGS=-x c -mthumb -ffunction-sections -mlong-calls -Wall -std=gnu99 -D__$(CHIP)__ -mcpu=cortex-m0plus
+CXXFLAGS=-x c++ -mthumb -ffunction-sections -mlong-calls -Wall -std=c++11 -D__$(CHIP)__ -mcpu=cortex-m0plus
 
 # --------------------------------------------------------------------------------------------------
 
