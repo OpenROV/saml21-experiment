@@ -1,3 +1,6 @@
+#ifndef UTILS_ATOMIC_H
+#define UTILS_ATOMIC_H
+
 #include <util/compiler.h>
 
 namespace util
@@ -25,3 +28,5 @@ namespace util
 // ... your code
 // CRITICAL_SECTION_LEAVE()
 //
+
+#endif

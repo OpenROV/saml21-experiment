@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SYSTEM_CORE_H
+#define SYSTEM_CORE_H
 
 // Includes
 extern "C"
@@ -10,8 +11,9 @@ extern "C"
 }
 
 #include <sam.h>
-
 #include "sys_support.h"
 
 extern void Setup();
 extern void Loop();
+
+#endif

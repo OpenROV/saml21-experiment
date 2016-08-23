@@ -16,7 +16,8 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#pragma once
+#ifndef SYSTEM_CORE_H
+#define SYSTEM_CORE_H
 
 #include <stdint.h>
 #include <sam.h>
@@ -242,3 +243,5 @@ extern const void* g_apTCInstances[ TCC_INST_NUM + TC_INST_NUM ];
 
 // Pin table to be instantiated in variant.cpp
 extern const EPinDescriptor g_APinDescriptors[];
+
+#endif

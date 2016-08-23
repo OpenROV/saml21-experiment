@@ -41,7 +41,7 @@
  *
  */
 
-#include <util/util_atomic.h>
+#include <util/atomic.h>
 
 namespace util
 {
